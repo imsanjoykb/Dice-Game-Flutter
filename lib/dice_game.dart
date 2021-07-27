@@ -23,6 +23,7 @@ class _DiceGameState extends State<DiceGame> {
   var index2 = 0;
   var score = 0;
   var diceSum = 0;
+  var isOver = false;
 
   @override
   Widget build(BuildContext context) {
@@ -60,6 +61,11 @@ class _DiceGameState extends State<DiceGame> {
               'Dice Sum:$diceSum',
               style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
             ),
+            if (isOver)
+              Text(
+                'GAME OVER',
+                style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold, color: Colors.red),
+              ),
             ElevatedButton(
               onPressed: _rollTheDice,
               child: Text('Roll'),
@@ -75,7 +81,11 @@ class _DiceGameState extends State<DiceGame> {
       index1 = random.nextInt(6);
       index2 = random.nextInt(6);
       diceSum = index1 + index2 + 2;
-      score += index1 + index2 + 2;
+      if (diceSum == 7) {
+        isOver = true;
+      } else {
+        score += index1 + index2 + 2;
+      }
     });
   }
 }
