@@ -61,14 +61,20 @@ class _DiceGameState extends State<DiceGame> {
               'Dice Sum:$diceSum',
               style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
             ),
-            if (isOver)
-              Text(
-                'GAME OVER',
-                style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold, color: Colors.red),
-              ),
+            //if (isOver)
+            Text(
+              'GAME OVER',
+              style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold, color: Colors.red),
+            ),
             ElevatedButton(
               onPressed: _rollTheDice,
-              child: Text('Roll'),
+              child: Text(
+                'Roll',
+              ),
+              style: ElevatedButton.styleFrom(
+                  primary: Colors.purple,
+                  padding: EdgeInsets.symmetric(horizontal: 30, vertical: 20),
+                  textStyle: TextStyle(fontSize: 20, fontWeight: FontWeight.bold)),
             )
           ],
         ),
