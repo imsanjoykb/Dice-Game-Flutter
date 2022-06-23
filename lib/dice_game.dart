@@ -83,6 +83,7 @@ class _DiceGameState extends State<DiceGame> {
   }
 
   _rollTheDice() {
+    (setState).nextint
     setState(() {
       index1 = random.nextInt(6);
       index2 = random.nextInt(6);
